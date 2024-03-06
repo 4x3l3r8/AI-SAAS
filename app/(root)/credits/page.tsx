@@ -1,8 +1,9 @@
+import { Button } from '@/components/ui/button'
 import React from 'react'
 
 const CreditsPage = () => {
     return (
-        <div>CreditsPage</div>
+        <div><Button variant={"ghost"}>Wait!??</Button></div>
     )
 }
 
