@@ -81,6 +81,8 @@ export const debounce = (func: (...args: any[]) => void, delay: number) => {
 
 // GE IMAGE SIZE
 export type AspectRatioKey = keyof typeof aspectRatioOptions;
+
+
 export const getImageSize = (type: string, image: any, dimension: "width" | "height"): number => {
   if (type === "fill") {
     return aspectRatioOptions[image.aspectRatio as AspectRatioKey]?.[dimension] || 1000;
@@ -108,8 +110,17 @@ export const download = (url: string, filename: string) => {
     .catch((error) => console.log({ error }));
 };
 
-// DEEP MERGE OBJECTS
-export const deepMergeObjects = (obj1: any, obj2: any) => {
+/**
+ * The function `deepMergeObjects` recursively merges two objects deeply, prioritizing values from the
+ * second object when conflicts arise.
+ * @param obj1 - obj1 is an object containing key-value pairs.
+ * @param obj2 - The `obj2` parameter in the `deepMergeObjects` function is an object containing
+ * key-value pairs that you want to merge with `obj1`. It is used to merge the properties of `obj1`
+ * with the properties of `obj2` in a deep merge fashion, meaning that nested
+ * @returns The `deepMergeObjects` function returns a new object that is a deep merge of the two input
+ * objects `obj1` and `obj2`.
+ */
+export const deepMergeObjects = (obj1: { [prop: string]: any }, obj2: { [prop: string]: any }) => {
   if (obj2 === null || obj2 === undefined) {
     return obj1;
   }

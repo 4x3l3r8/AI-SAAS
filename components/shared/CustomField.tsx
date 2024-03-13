@@ -14,13 +14,15 @@ import { formSchema } from "./TransformationForm";
 
 type CustomFieldProps = {
   control: Control<z.infer<typeof formSchema>> | undefined;
-  render: (props: { field: ControllerRenderProps<{
-    title: string;
-    publicId: string;
-    aspectRatio?: string | undefined;
-    color?: string | undefined;
-    prompt?: string | undefined;
-}, "title" | "aspectRatio" | "color" | "prompt" | "publicId"> }) => React.ReactNode;
+  render: (props: {
+    field: ControllerRenderProps<{
+      title: string;
+      publicId: string;
+      aspectRatio?: string | undefined;
+      color?: string | undefined;
+      prompt?: string | undefined;
+    }, "title" | "aspectRatio" | "color" | "prompt" | "publicId">
+  }) => React.ReactNode;
   name: keyof z.infer<typeof formSchema>;
   formLabel?: string;
   className?: string;
